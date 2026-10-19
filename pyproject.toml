@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vision-gate"
+version = "1.0.0"
+description = "Fail-open change-detection gate for vision pipelines: cheap frame differencing decides which frames are worth a vision-model call, with receipts for every decision."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "vision-gate contributors" }]
+keywords = ["computer-vision", "change-detection", "keyframe", "triage", "opencv"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Scientific/Engineering :: Image Processing",
+]
+dependencies = [
+    "numpy>=1.24",
+    "opencv-python-headless>=4.8",
+]
+
+[project.scripts]
+vision-gate = "vision_gate.gate:main"
+
+[project.urls]
+Homepage = "https://github.com/Darren-dev141/vision-gate"
+
+[tool.setuptools.packages.find]
+where = ["src"]
